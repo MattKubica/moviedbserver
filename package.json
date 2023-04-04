@@ -10,9 +10,10 @@
   },
   "name": "moviesearchpostman",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
+    "build": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
