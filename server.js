@@ -29,6 +29,10 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send(database.users);
 });
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
 
 app.post("/signin", (req, res) => {
   db.select("email", "hash")
@@ -135,8 +139,4 @@ app.put("/image", (req, res) => {
       res.json(entries[0].entries);
     })
     .catch((err) => res.status(400).json("unable to get entries"));
-});
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
 });
