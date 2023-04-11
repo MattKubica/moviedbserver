@@ -30,7 +30,7 @@ app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
-app.get("https://moviedb-rlml.onrender.com/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("it is working!");
 });
 
