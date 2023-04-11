@@ -25,16 +25,16 @@ db.select("*")
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-
-app.get("/", (req, res) => {
-  res.send("it is working!");
-});
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
-app.post("/signin", (req, res) => {
+app.get("https://moviedb-rlml.onrender.com/", (req, res) => {
+  res.send("it is working!");
+});
+
+app.post("https://moviedb-rlml.onrender.com/signin", (req, res) => {
   db.select("email", "hash")
     .from("login")
     .where("email", "=", req.body.email)
@@ -72,7 +72,7 @@ app.post("/signin", (req, res) => {
     .catch((err) => res.status(400).json("wrong credentials"));
 });
 
-app.post("/register", (req, res) => {
+app.post("https://moviedb-rlml.onrender.com/register", (req, res) => {
   const saltRounds = 10;
   const { email, name, password } = req.body;
   if (!email || !name || !password) {
@@ -114,7 +114,7 @@ app.post("/register", (req, res) => {
   }).catch((err) => res.status(400).json("unable to register"));
 });
 
-app.get("/profile/:id", (req, res) => {
+app.get("https://moviedb-rlml.onrender.com/profile/:id", (req, res) => {
   const { id } = req.params;
   db.select("*")
     .from("users")
@@ -129,7 +129,7 @@ app.get("/profile/:id", (req, res) => {
     .catch((err) => res.status(400).json("error getting user"));
 });
 
-app.put("/image", (req, res) => {
+app.put("https://moviedb-rlml.onrender.com/image", (req, res) => {
   const { id } = req.body;
   db("users")
     .where("id", "=", id)
