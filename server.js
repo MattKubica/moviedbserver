@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
   res.send("it is working!");
 });
 
-app.post("https://moviedb-rlml.onrender.com/signin", (req, res) => {
+app.post("/signin", (req, res) => {
   db.select("email", "hash")
     .from("login")
     .where("email", "=", req.body.email)
@@ -72,7 +72,7 @@ app.post("https://moviedb-rlml.onrender.com/signin", (req, res) => {
     .catch((err) => res.status(400).json("wrong credentials"));
 });
 
-app.post("https://moviedb-rlml.onrender.com/register", (req, res) => {
+app.post("/register", (req, res) => {
   const saltRounds = 10;
   const { email, name, password } = req.body;
   if (!email || !name || !password) {
@@ -114,7 +114,7 @@ app.post("https://moviedb-rlml.onrender.com/register", (req, res) => {
   }).catch((err) => res.status(400).json("unable to register"));
 });
 
-app.get("https://moviedb-rlml.onrender.com/profile/:id", (req, res) => {
+app.get("/profile/:id", (req, res) => {
   const { id } = req.params;
   db.select("*")
     .from("users")
@@ -129,7 +129,7 @@ app.get("https://moviedb-rlml.onrender.com/profile/:id", (req, res) => {
     .catch((err) => res.status(400).json("error getting user"));
 });
 
-app.put("https://moviedb-rlml.onrender.com/image", (req, res) => {
+app.put("/image", (req, res) => {
   const { id } = req.body;
   db("users")
     .where("id", "=", id)
