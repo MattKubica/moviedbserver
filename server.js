@@ -31,7 +31,7 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.status(200).res.json("it is working!");
+  //res.status(200).res.json("it is working!");
 });
 
 app.post("/signin", (req, res) => {
