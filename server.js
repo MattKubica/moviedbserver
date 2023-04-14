@@ -30,11 +30,9 @@ app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
-/*
 app.get("/", (req, res) => {
-  res.send("it is working!");
+  res.json("it is working!");
 });
-*/
 
 app.post("/signin", (req, res) => {
   db.select("email", "hash")
