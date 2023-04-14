@@ -16,12 +16,12 @@ const db = knex({
   },
 });
 
-/*db.select("*")
+db.select("*")
   .from("users")
   .then((data) => {
-    //   console.log(data);
+    console.log(data);
   });
-*/
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -30,7 +30,7 @@ app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
-app.get("https://moviedb-rlml.onrender.com/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("it is working!");
 });
 
