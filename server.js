@@ -114,7 +114,7 @@ app.post("/register", (req, res) => {
   }).catch((err) => res.status(400).json("unable to register"));
 });
 
-app.get("/profile/:id", (req, res) => {
+/*app.get("/profile/:id", (req, res) => {
   const { id } = req.params;
   db.select("*")
     .from("users")
@@ -139,4 +139,4 @@ app.put("/image", (req, res) => {
       res.json(entries[0].entries);
     })
     .catch((err) => res.status(400).json("unable to get entries"));
-});
+});*/
