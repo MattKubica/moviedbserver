@@ -16,12 +16,12 @@ const db = knex({
   },
 });
 
-db.select("*")
+/*db.select("*")
   .from("users")
   .then((data) => {
     console.log(data);
   });
-
+*/
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
